@@ -1,0 +1,751 @@
+PS E:\projetos\docker-bigdata> docker-compose up -d
+
+PS E:\projetos\docker-bigdata> docker ps
+CONTAINER ID   IMAGE                    COMMAND                  CREATED        STATUS                 PORTS                                                                NAMES
+67cb4f17e952   fjardim/hive             "entrypoint.sh /bin/…"   18 hours ago   Up 2 hours             0.0.0.0:10000->10000/tcp, 10002/tcp                                  hive-server
+b83cd191f81e   fjardim/hive             "entrypoint.sh /opt/…"   18 hours ago   Up 2 hours             10000/tcp, 0.0.0.0:9083->9083/tcp, 10002/tcp                         hive_metastore
+547ff3bd4208   fjardim/hive-metastore   "/docker-entrypoint.…"   18 hours ago   Up 2 hours             5432/tcp                                                             hive-metastore-postgresql
+66b516d9ac13   fjardim/datanode         "/entrypoint.sh /run…"   19 hours ago   Up 2 hours (healthy)   0.0.0.0:50075->50075/tcp                                             datanode
+38e9a1dfa26b   fjardim/hbase-master     "/entrypoint.sh /run…"   19 hours ago   Up 2 hours             16000/tcp, 0.0.0.0:16010->16010/tcp                                  hbase-master
+e66c5fa361c0   fjardim/zookeeper        "/bin/sh -c '/usr/sb…"   19 hours ago   Up 2 hours             22/tcp, 2888/tcp, 3888/tcp, 0.0.0.0:2181->2181/tcp                   zookeeper
+3f771c4580b8   fjardim/namenode_sqoop   "/entrypoint.sh /run…"   19 hours ago   Up 2 hours (healthy)   0.0.0.0:50070->50070/tcp                                             namenode
+b7e84749ed87   fjardim/mysql            "docker-entrypoint.s…"   19 hours ago   Up 2 hours             33060/tcp, 0.0.0.0:33061->3306/tcp                                   database
+9184af4111aa   fjardim/jupyter-spark    "/opt/docker/bin/ent…"   19 hours ago   Up 2 hours             0.0.0.0:4040-4043->4040-4043/tcp, 0.0.0.0:8889->8889/tcp, 8899/tcp   spark
+PS E:\projetos\docker-bigdata>
+
+PS E:\projetos\docker-bigdata> docker ps -a
+CONTAINER ID   IMAGE                    COMMAND                  CREATED        STATUS                 PORTS                                                                NAMES
+67cb4f17e952   fjardim/hive             "entrypoint.sh /bin/…"   18 hours ago   Up 2 hours             0.0.0.0:10000->10000/tcp, 10002/tcp                                  hive-server
+b83cd191f81e   fjardim/hive             "entrypoint.sh /opt/…"   19 hours ago   Up 2 hours             10000/tcp, 0.0.0.0:9083->9083/tcp, 10002/tcp                         hive_metastore
+547ff3bd4208   fjardim/hive-metastore   "/docker-entrypoint.…"   19 hours ago   Up 2 hours             5432/tcp                                                             hive-metastore-postgresql
+66b516d9ac13   fjardim/datanode         "/entrypoint.sh /run…"   19 hours ago   Up 2 hours (healthy)   0.0.0.0:50075->50075/tcp                                             datanode
+38e9a1dfa26b   fjardim/hbase-master     "/entrypoint.sh /run…"   19 hours ago   Up 2 hours             16000/tcp, 0.0.0.0:16010->16010/tcp                                  hbase-master
+e66c5fa361c0   fjardim/zookeeper        "/bin/sh -c '/usr/sb…"   19 hours ago   Up 2 hours             22/tcp, 2888/tcp, 3888/tcp, 0.0.0.0:2181->2181/tcp                   zookeeper
+3f771c4580b8   fjardim/namenode_sqoop   "/entrypoint.sh /run…"   19 hours ago   Up 2 hours (healthy)   0.0.0.0:50070->50070/tcp                                             namenode
+b7e84749ed87   fjardim/mysql            "docker-entrypoint.s…"   19 hours ago   Up 2 hours             33060/tcp, 0.0.0.0:33061->3306/tcp                                   database
+9184af4111aa   fjardim/jupyter-spark    "/opt/docker/bin/ent…"   19 hours ago   Up 2 hours             0.0.0.0:4040-4043->4040-4043/tcp, 0.0.0.0:8889->8889/tcp, 8899/tcp   spark
+
+
+PS E:\projetos\docker-bigdata> ls
+
+
+    Diretório: E:\projetos\docker-bigdata
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        15/02/2021     09:42                data
+d-----        14/02/2021     18:20                input
+-a----        14/02/2021     16:20           7025 docker-compose-completo-windows.yml
+-a----        14/02/2021     16:20           6647 docker-compose-completo.yml
+-a----        14/02/2021     16:20           3941 docker-compose.yml
+-a----        14/02/2021     16:20         343678 ecosystem.jpeg
+-a----        14/02/2021     16:19           3586 README.md
+
+
+PS E:\projetos\docker-bigdata> cd input
+PS E:\projetos\docker-bigdata\input> ls
+PS E:\projetos\docker-bigdata\input> dir
+
+https://github.com/rodrigo-reboucas/exercises-data
+baixei do conteúdo do git acima
+
+PS E:\projetos\docker-bigdata\input> ls
+
+
+    Diretório: E:\projetos\docker-bigdata\input
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        06/01/2021     09:02                exercises-data
+
+
+PS E:\projetos\docker-bigdata\input> cd exercises-data
+PS E:\projetos\docker-bigdata\input\exercises-data> ls
+
+
+    Diretório: E:\projetos\docker-bigdata\input\exercises-data
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        06/01/2021     09:02                beneficio
+d-----        06/01/2021     09:02                db-sql
+d-----        06/01/2021     09:02                economicFitness
+d-----        06/01/2021     09:02                empreendimento
+d-----        06/01/2021     09:02                escola
+d-----        06/01/2021     09:02                hnpStats
+d-----        06/01/2021     09:02                iris
+d-----        06/01/2021     09:02                juros_selic
+d-----        06/01/2021     09:02                names
+d-----        06/01/2021     09:02                namesbystate
+d-----        06/01/2021     09:02                ouvidoria
+d-----        06/01/2021     09:02                populacaoLA
+------        06/01/2021     09:02             54 entrada1.txt
+------        06/01/2021     09:02             42 entrada2.txt
+------        06/01/2021     09:02            161 map.py
+------        06/01/2021     09:02             46 README.md
+------        06/01/2021     09:02            511 reduce.py
+------        06/01/2021     09:02           2089 WordCount.java
+
+
+PS E:\projetos\docker-bigdata\input\exercises-data> dir
+
+
+    Diretório: E:\projetos\docker-bigdata\input\exercises-data
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        06/01/2021     09:02                beneficio
+d-----        06/01/2021     09:02                db-sql
+d-----        06/01/2021     09:02                economicFitness
+d-----        06/01/2021     09:02                empreendimento
+d-----        06/01/2021     09:02                escola
+d-----        06/01/2021     09:02                hnpStats
+d-----        06/01/2021     09:02                iris
+d-----        06/01/2021     09:02                juros_selic
+d-----        06/01/2021     09:02                names
+d-----        06/01/2021     09:02                namesbystate
+d-----        06/01/2021     09:02                ouvidoria
+d-----        06/01/2021     09:02                populacaoLA
+------        06/01/2021     09:02             54 entrada1.txt
+------        06/01/2021     09:02             42 entrada2.txt
+------        06/01/2021     09:02            161 map.py
+------        06/01/2021     09:02             46 README.md
+------        06/01/2021     09:02            511 reduce.py
+------        06/01/2021     09:02           2089 WordCount.java
+
+
+PS E:\projetos\docker-bigdata\input\exercises-data> docker exec -it namenode bash
+root@namenode:/# hdfs dfs -ls -R /
+drwxr-xr-x   - root supergroup          0 2021-02-15 14:02 /hbase
+drwxr-xr-x   - root supergroup          0 2021-02-15 14:02 /hbase/.tmp
+drwxr-xr-x   - root supergroup          0 2021-02-15 15:04 /hbase/MasterProcWALs
+-rw-r--r--   3 root supergroup         30 2021-02-15 15:25 /hbase/MasterProcWALs/state-00000000000000000007.log
+drwxr-xr-x   - root supergroup          0 2021-02-15 14:03 /hbase/WALs
+drwxr-xr-x   - root supergroup          0 2021-02-15 16:09 /hbase/WALs/hbase-master,44597,1613397732881
+-rw-r--r--   3 root supergroup         83 2021-02-15 16:09 /hbase/WALs/hbase-master,44597,1613397732881/hbase-master%2C44597%2C1613397732881..meta.1613405376992.meta
+-rw-r--r--   3 root supergroup         83 2021-02-15 16:04 /hbase/WALs/hbase-master,44597,1613397732881/hbase-master%2C44597%2C1613397732881.default.1613405046822
+drwxr-xr-x   - root supergroup          0 2021-02-15 12:30 /hbase/corrupt
+drwxr-xr-x   - root supergroup          0 2021-02-15 12:31 /hbase/data
+drwxr-xr-x   - root supergroup          0 2021-02-15 12:31 /hbase/data/default
+drwxr-xr-x   - root supergroup          0 2021-02-15 12:30 /hbase/data/hbase
+drwxr-xr-x   - root supergroup          0 2021-02-14 21:57 /hbase/data/hbase/meta
+drwxr-xr-x   - root supergroup          0 2021-02-14 21:57 /hbase/data/hbase/meta/.tabledesc
+-rw-r--r--   3 root supergroup        398 2021-02-14 21:57 /hbase/data/hbase/meta/.tabledesc/.tableinfo.0000000001
+drwxr-xr-x   - root supergroup          0 2021-02-14 21:57 /hbase/data/hbase/meta/.tmp
+drwxr-xr-x   - root supergroup          0 2021-02-15 14:09 /hbase/data/hbase/meta/1588230740
+-rw-r--r--   3 root supergroup         32 2021-02-14 21:57 /hbase/data/hbase/meta/1588230740/.regioninfo
+drwxr-xr-x   - root supergroup          0 2021-02-15 14:09 /hbase/data/hbase/meta/1588230740/.tmp
+drwxr-xr-x   - root supergroup          0 2021-02-15 14:09 /hbase/data/hbase/meta/1588230740/info
+-rw-r--r--   3 root supergroup       5259 2021-02-15 14:09 /hbase/data/hbase/meta/1588230740/info/18e1ec6e65cb484baaf2876b1612cfa9
+-rw-r--r--   3 root supergroup       5399 2021-02-15 12:39 /hbase/data/hbase/meta/1588230740/info/33b91561b7ee4394819f03fc895de206
+drwxr-xr-x   - root supergroup          0 2021-02-15 14:03 /hbase/data/hbase/meta/1588230740/recovered.edits
+-rw-r--r--   3 root supergroup          0 2021-02-15 14:03 /hbase/data/hbase/meta/1588230740/recovered.edits/10.seqid
+drwxr-xr-x   - root supergroup          0 2021-02-15 12:30 /hbase/data/hbase/namespace
+drwxr-xr-x   - root supergroup          0 2021-02-15 12:30 /hbase/data/hbase/namespace/.tabledesc
+-rw-r--r--   3 root supergroup        312 2021-02-15 12:30 /hbase/data/hbase/namespace/.tabledesc/.tableinfo.0000000001
+drwxr-xr-x   - root supergroup          0 2021-02-15 12:30 /hbase/data/hbase/namespace/.tmp
+drwxr-xr-x   - root supergroup          0 2021-02-15 14:03 /hbase/data/hbase/namespace/57131982ff868aa3a0e165cb25bb9b85
+-rw-r--r--   3 root supergroup         42 2021-02-15 12:30 /hbase/data/hbase/namespace/57131982ff868aa3a0e165cb25bb9b85/.regioninfo
+drwxr-xr-x   - root supergroup          0 2021-02-15 12:37 /hbase/data/hbase/namespace/57131982ff868aa3a0e165cb25bb9b85/info
+-rw-r--r--   3 root supergroup       4963 2021-02-15 12:37 /hbase/data/hbase/namespace/57131982ff868aa3a0e165cb25bb9b85/info/92bd2eadbbcd4b0799db842ae29cb068
+drwxr-xr-x   - root supergroup          0 2021-02-15 14:03 /hbase/data/hbase/namespace/57131982ff868aa3a0e165cb25bb9b85/recovered.edits
+-rw-r--r--   3 root supergroup          0 2021-02-15 14:03 /hbase/data/hbase/namespace/57131982ff868aa3a0e165cb25bb9b85/recovered.edits/8.seqid
+-rw-r--r--   3 root supergroup         42 2021-02-14 21:57 /hbase/hbase.id
+-rw-r--r--   3 root supergroup          7 2021-02-14 21:57 /hbase/hbase.version
+drwxr-xr-x   - root supergroup          0 2021-02-15 16:09 /hbase/oldWALs
+-rw-r--r--   3 root supergroup         91 2021-02-15 16:09 /hbase/oldWALs/hbase-master%2C44597%2C1613397732881..meta.1613401769621.meta
+-rw-r--r--   3 root supergroup         91 2021-02-15 16:04 /hbase/oldWALs/hbase-master%2C44597%2C1613397732881.default.1613401443022
+drwxrwxr-x   - root supergroup          0 2021-02-15 12:31 /tmp
+drwx-wx-wx   - root supergroup          0 2021-02-15 12:31 /tmp/hive
+drwx------   - root supergroup          0 2021-02-15 14:04 /tmp/hive/root
+drwx------   - root supergroup          0 2021-02-15 12:31 /tmp/hive/root/599249b5-e85b-424e-a183-27a93bdc5830
+drwx------   - root supergroup          0 2021-02-15 12:31 /tmp/hive/root/599249b5-e85b-424e-a183-27a93bdc5830/_tmp_space.db
+drwx------   - root supergroup          0 2021-02-15 14:04 /tmp/hive/root/9a5c12df-8d46-4f3d-a0ac-55294b0bad3b
+drwx------   - root supergroup          0 2021-02-15 14:04 /tmp/hive/root/9a5c12df-8d46-4f3d-a0ac-55294b0bad3b/_tmp_space.db
+drwxr-xr-x   - root supergroup          0 2021-02-15 12:30 /user
+drwxr-xr-x   - root supergroup          0 2021-02-15 12:30 /user/hive
+drwxrwxr-x   - root supergroup          0 2021-02-15 12:30 /user/hive/warehouse
+root@namenode:/#
+
+
+root@namenode:/# hdfs dfs -ls -R /user
+drwxr-xr-x   - root supergroup          0 2021-02-15 12:30 /user/hive
+drwxrwxr-x   - root supergroup          0 2021-02-15 12:30 /user/hive/warehouse
+root@namenode:/# hdfs dfs -help
+Usage: hadoop fs [generic options]
+        [-appendToFile <localsrc> ... <dst>]
+        [-cat [-ignoreCrc] <src> ...]
+        [-checksum <src> ...]
+        [-chgrp [-R] GROUP PATH...]
+        [-chmod [-R] <MODE[,MODE]... | OCTALMODE> PATH...]
+        [-chown [-R] [OWNER][:[GROUP]] PATH...]
+        [-copyFromLocal [-f] [-p] [-l] <localsrc> ... <dst>]
+        [-copyToLocal [-p] [-ignoreCrc] [-crc] <src> ... <localdst>]
+        [-count [-q] [-h] <path> ...]
+        [-cp [-f] [-p | -p[topax]] <src> ... <dst>]
+        [-createSnapshot <snapshotDir> [<snapshotName>]]
+        [-deleteSnapshot <snapshotDir> <snapshotName>]
+        [-df [-h] [<path> ...]]
+        [-du [-s] [-h] <path> ...]
+        [-expunge]
+        [-find <path> ... <expression> ...]
+        [-get [-p] [-ignoreCrc] [-crc] <src> ... <localdst>]
+        [-getfacl [-R] <path>]
+        [-getfattr [-R] {-n name | -d} [-e en] <path>]
+        [-getmerge [-nl] <src> <localdst>]
+        [-help [cmd ...]]
+        [-ls [-d] [-h] [-R] [<path> ...]]
+        [-mkdir [-p] <path> ...]
+        [-moveFromLocal <localsrc> ... <dst>]
+        [-moveToLocal <src> <localdst>]
+        [-mv <src> ... <dst>]
+        [-put [-f] [-p] [-l] <localsrc> ... <dst>]
+        [-renameSnapshot <snapshotDir> <oldName> <newName>]
+        [-rm [-f] [-r|-R] [-skipTrash] <src> ...]
+        [-rmdir [--ignore-fail-on-non-empty] <dir> ...]
+        [-setfacl [-R] [{-b|-k} {-m|-x <acl_spec>} <path>]|[--set <acl_spec> <path>]]
+        [-setfattr {-n name [-v value] | -x name} <path>]
+        [-setrep [-R] [-w] <rep> <path> ...]
+        [-stat [format] <path> ...]
+        [-tail [-f] <file>]
+        [-test -[defsz] <path>]
+        [-text [-ignoreCrc] <src> ...]
+        [-touchz <path> ...]
+        [-truncate [-w] <length> <path> ...]
+        [-usage [cmd ...]]
+
+-appendToFile <localsrc> ... <dst> :
+  Appends the contents of all the given local files to the given dst file. The dst
+  file will be created if it does not exist. If <localSrc> is -, then the input is
+  read from stdin.
+
+-cat [-ignoreCrc] <src> ... :
+  Fetch all files that match the file pattern <src> and display their content on
+  stdout.
+
+-checksum <src> ... :
+  Dump checksum information for files that match the file pattern <src> to stdout.
+  Note that this requires a round-trip to a datanode storing each block of the
+  file, and thus is not efficient to run on a large number of files. The checksum
+  of a file depends on its content, block size and the checksum algorithm and
+  parameters used for creating the file.
+
+-chgrp [-R] GROUP PATH... :
+  This is equivalent to -chown ... :GROUP ...
+
+-chmod [-R] <MODE[,MODE]... | OCTALMODE> PATH... :
+  Changes permissions of a file. This works similar to the shell's chmod command
+  with a few exceptions.
+
+  -R           modifies the files recursively. This is the only option currently
+               supported.
+  <MODE>       Mode is the same as mode used for the shell's command. The only
+               letters recognized are 'rwxXt', e.g. +t,a+r,g-w,+rwx,o=r.
+  <OCTALMODE>  Mode specifed in 3 or 4 digits. If 4 digits, the first may be 1 or
+               0 to turn the sticky bit on or off, respectively.  Unlike the
+               shell command, it is not possible to specify only part of the
+               mode, e.g. 754 is same as u=rwx,g=rx,o=r.
+
+  If none of 'augo' is specified, 'a' is assumed and unlike the shell command, no
+  umask is applied.
+
+-chown [-R] [OWNER][:[GROUP]] PATH... :
+  Changes owner and group of a file. This is similar to the shell's chown command
+  with a few exceptions.
+
+  -R  modifies the files recursively. This is the only option currently
+      supported.
+
+  If only the owner or group is specified, then only the owner or group is
+  modified. The owner and group names may only consist of digits, alphabet, and
+  any of [-_./@a-zA-Z0-9]. The names are case sensitive.
+
+  WARNING: Avoid using '.' to separate user name and group though Linux allows it.
+  If user names have dots in them and you are using local file system, you might
+  see surprising results since the shell command 'chown' is used for local files.
+
+-copyFromLocal [-f] [-p] [-l] <localsrc> ... <dst> :
+  Identical to the -put command.
+
+-copyToLocal [-p] [-ignoreCrc] [-crc] <src> ... <localdst> :
+  Identical to the -get command.
+
+-count [-q] [-h] <path> ... :
+  Count the number of directories, files and bytes under the paths
+  that match the specified file pattern.  The output columns are:
+  DIR_COUNT FILE_COUNT CONTENT_SIZE FILE_NAME or
+  QUOTA REMAINING_QUOTA SPACE_QUOTA REMAINING_SPACE_QUOTA
+        DIR_COUNT FILE_COUNT CONTENT_SIZE FILE_NAME
+  The -h option shows file sizes in human readable format.
+
+-cp [-f] [-p | -p[topax]] <src> ... <dst> :
+  Copy files that match the file pattern <src> to a destination.  When copying
+  multiple files, the destination must be a directory. Passing -p preserves status
+  [topax] (timestamps, ownership, permission, ACLs, XAttr). If -p is specified
+  with no <arg>, then preserves timestamps, ownership, permission. If -pa is
+  specified, then preserves permission also because ACL is a super-set of
+  permission. Passing -f overwrites the destination if it already exists. raw
+  namespace extended attributes are preserved if (1) they are supported (HDFS
+  only) and, (2) all of the source and target pathnames are in the /.reserved/raw
+  hierarchy. raw namespace xattr preservation is determined solely by the presence
+  (or absence) of the /.reserved/raw prefix and not by the -p option.
+
+-createSnapshot <snapshotDir> [<snapshotName>] :
+  Create a snapshot on a directory
+
+-deleteSnapshot <snapshotDir> <snapshotName> :
+  Delete a snapshot from a directory
+
+-df [-h] [<path> ...] :
+  Shows the capacity, free and used space of the filesystem. If the filesystem has
+  multiple partitions, and no path to a particular partition is specified, then
+  the status of the root partitions will be shown.
+
+  -h  Formats the sizes of files in a human-readable fashion rather than a number
+      of bytes.
+
+-du [-s] [-h] <path> ... :
+  Show the amount of space, in bytes, used by the files that match the specified
+  file pattern. The following flags are optional:
+
+  -s  Rather than showing the size of each individual file that matches the
+      pattern, shows the total (summary) size.
+  -h  Formats the sizes of files in a human-readable fashion rather than a number
+      of bytes.
+
+  Note that, even without the -s option, this only shows size summaries one level
+  deep into a directory.
+
+  The output is in the form
+        size    name(full path)
+
+-expunge :
+  Delete files from the trash that are older than the retention threshold
+
+-find <path> ... <expression> ... :
+  Finds all files that match the specified expression and
+  applies selected actions to them. If no <path> is specified
+  then defaults to the current working directory. If no
+  expression is specified then defaults to -print.
+
+  The following primary expressions are recognised:
+    -name pattern
+    -iname pattern
+      Evaluates as true if the basename of the file matches the
+      pattern using standard file system globbing.
+      If -iname is used then the match is case insensitive.
+
+    -print
+    -print0
+      Always evaluates to true. Causes the current pathname to be
+      written to standard output followed by a newline. If the -print0
+      expression is used then an ASCII NULL character is appended rather
+      than a newline.
+
+  The following operators are recognised:
+    expression -a expression
+    expression -and expression
+    expression expression
+      Logical AND operator for joining two expressions. Returns
+      true if both child expressions return true. Implied by the
+      juxtaposition of two expressions and so does not need to be
+      explicitly specified. The second expression will not be
+      applied if the first fails.
+
+-get [-p] [-ignoreCrc] [-crc] <src> ... <localdst> :
+  Copy files that match the file pattern <src> to the local name.  <src> is kept.
+  When copying multiple files, the destination must be a directory. Passing -p
+  preserves access and modification times, ownership and the mode.
+
+-getfacl [-R] <path> :
+  Displays the Access Control Lists (ACLs) of files and directories. If a
+  directory has a default ACL, then getfacl also displays the default ACL.
+
+  -R      List the ACLs of all files and directories recursively.
+  <path>  File or directory to list.
+
+-getfattr [-R] {-n name | -d} [-e en] <path> :
+  Displays the extended attribute names and values (if any) for a file or
+  directory.
+
+  -R             Recursively list the attributes for all files and directories.
+  -n name        Dump the named extended attribute value.
+  -d             Dump all extended attribute values associated with pathname.
+  -e <encoding>  Encode values after retrieving them.Valid encodings are "text",
+                 "hex", and "base64". Values encoded as text strings are enclosed
+                 in double quotes ("), and values encoded as hexadecimal and
+                 base64 are prefixed with 0x and 0s, respectively.
+  <path>         The file or directory.
+
+-getmerge [-nl] <src> <localdst> :
+  Get all the files in the directories that match the source file pattern and
+  merge and sort them to only one file on local fs. <src> is kept.
+
+  -nl  Add a newline character at the end of each file.
+
+-help [cmd ...] :
+  Displays help for given command or all commands if none is specified.
+
+-ls [-d] [-h] [-R] [<path> ...] :
+  List the contents that match the specified file pattern. If path is not
+  specified, the contents of /user/<currentUser> will be listed. Directory entries
+  are of the form:
+        permissions - userId groupId sizeOfDirectory(in bytes)
+  modificationDate(yyyy-MM-dd HH:mm) directoryName
+
+  and file entries are of the form:
+        permissions numberOfReplicas userId groupId sizeOfFile(in bytes)
+  modificationDate(yyyy-MM-dd HH:mm) fileName
+
+  -d  Directories are listed as plain files.
+  -h  Formats the sizes of files in a human-readable fashion rather than a number
+      of bytes.
+  -R  Recursively list the contents of directories.
+
+-mkdir [-p] <path> ... :
+  Create a directory in specified location.
+
+  -p  Do not fail if the directory already exists
+
+-moveFromLocal <localsrc> ... <dst> :
+  Same as -put, except that the source is deleted after it's copied.
+
+-moveToLocal <src> <localdst> :
+  Not implemented yet
+
+-mv <src> ... <dst> :
+  Move files that match the specified file pattern <src> to a destination <dst>.
+  When moving multiple files, the destination must be a directory.
+
+-put [-f] [-p] [-l] <localsrc> ... <dst> :
+  Copy files from the local file system into fs. Copying fails if the file already
+  exists, unless the -f flag is given.
+  Flags:
+
+  -p  Preserves access and modification times, ownership and the mode.
+  -f  Overwrites the destination if it already exists.
+  -l  Allow DataNode to lazily persist the file to disk. Forces
+         replication factor of 1. This flag will result in reduced
+         durability. Use with care.
+
+-renameSnapshot <snapshotDir> <oldName> <newName> :
+  Rename a snapshot from oldName to newName
+
+-rm [-f] [-r|-R] [-skipTrash] <src> ... :
+  Delete all files that match the specified file pattern. Equivalent to the Unix
+  command "rm <src>"
+
+  -skipTrash  option bypasses trash, if enabled, and immediately deletes <src>
+  -f          If the file does not exist, do not display a diagnostic message or
+              modify the exit status to reflect an error.
+  -[rR]       Recursively deletes directories
+
+-rmdir [--ignore-fail-on-non-empty] <dir> ... :
+  Removes the directory entry specified by each directory argument, provided it is
+  empty.
+
+-setfacl [-R] [{-b|-k} {-m|-x <acl_spec>} <path>]|[--set <acl_spec> <path>] :
+  Sets Access Control Lists (ACLs) of files and directories.
+  Options:
+
+  -b          Remove all but the base ACL entries. The entries for user, group
+              and others are retained for compatibility with permission bits.
+  -k          Remove the default ACL.
+  -R          Apply operations to all files and directories recursively.
+  -m          Modify ACL. New entries are added to the ACL, and existing entries
+              are retained.
+  -x          Remove specified ACL entries. Other ACL entries are retained.
+  --set       Fully replace the ACL, discarding all existing entries. The
+              <acl_spec> must include entries for user, group, and others for
+              compatibility with permission bits.
+  <acl_spec>  Comma separated list of ACL entries.
+  <path>      File or directory to modify.
+
+-setfattr {-n name [-v value] | -x name} <path> :
+  Sets an extended attribute name and value for a file or directory.
+
+  -n name   The extended attribute name.
+  -v value  The extended attribute value. There are three different encoding
+            methods for the value. If the argument is enclosed in double quotes,
+            then the value is the string inside the quotes. If the argument is
+            prefixed with 0x or 0X, then it is taken as a hexadecimal number. If
+            the argument begins with 0s or 0S, then it is taken as a base64
+            encoding.
+  -x name   Remove the extended attribute.
+  <path>    The file or directory.
+
+-setrep [-R] [-w] <rep> <path> ... :
+  Set the replication level of a file. If <path> is a directory then the command
+  recursively changes the replication factor of all files under the directory tree
+  rooted at <path>.
+
+  -w  It requests that the command waits for the replication to complete. This
+      can potentially take a very long time.
+  -R  It is accepted for backwards compatibility. It has no effect.
+
+-stat [format] <path> ... :
+  Print statistics about the file/directory at <path>
+  in the specified format. Format accepts filesize in
+  blocks (%b), type (%F), group name of owner (%g),
+  name (%n), block size (%o), replication (%r), user name
+  of owner (%u), modification date (%y, %Y).
+  %y shows UTC date as "yyyy-MM-dd HH:mm:ss" and
+  %Y shows milliseconds since January 1, 1970 UTC.
+  If the format is not specified, %y is used by default.
+
+-tail [-f] <file> :
+  Show the last 1KB of the file.
+
+  -f  Shows appended data as the file grows.
+
+-test -[defsz] <path> :
+  Answer various questions about <path>, with result via exit status.
+    -d  return 0 if <path> is a directory.
+    -e  return 0 if <path> exists.
+    -f  return 0 if <path> is a file.
+    -s  return 0 if file <path> is greater than zero bytes in size.
+    -z  return 0 if file <path> is zero bytes in size, else return 1.
+
+-text [-ignoreCrc] <src> ... :
+  Takes a source file and outputs the file in text format.
+  The allowed formats are zip and TextRecordInputStream and Avro.
+
+-touchz <path> ... :
+  Creates a file of zero length at <path> with current time as the timestamp of
+  that <path>. An error is returned if the file exists with non-zero length
+
+-truncate [-w] <length> <path> ... :
+  Truncate all files that match the specified file pattern to the specified
+  length.
+
+  -w  Requests that the command wait for block recovery to complete, if
+      necessary.
+
+-usage [cmd ...] :
+  Displays the usage for given command or all commands if none is specified.
+
+Generic options supported are
+-conf <configuration file>     specify an application configuration file
+-D <property=value>            use value for given property
+-fs <local|namenode:port>      specify a namenode
+-jt <local|resourcemanager:port>    specify a ResourceManager
+-files <comma separated list of files>    specify comma separated files to be copied to the map reduce cluster
+-libjars <comma separated list of jars>    specify comma separated jar files to include in the classpath.
+-archives <comma separated list of archives>    specify comma separated archives to be unarchived on the compute machines.
+
+The general command line syntax is
+bin/hadoop command [genericOptions] [commandOptions]
+
+
+root@namenode:/# hdfs dfs -mkdir -p /user/aluno/feliciani/data
+root@namenode:/# hdfs dfs -ls -R /user
+drwxr-xr-x   - root supergroup          0 2021-02-15 16:38 /user/aluno
+drwxr-xr-x   - root supergroup          0 2021-02-15 16:38 /user/aluno/feliciani
+drwxr-xr-x   - root supergroup          0 2021-02-15 16:38 /user/aluno/feliciani/data
+drwxr-xr-x   - root supergroup          0 2021-02-15 12:30 /user/hive
+drwxrwxr-x   - root supergroup          0 2021-02-15 12:30 /user/hive/warehouse
+root@namenode:/#
+
+root@namenode:/# hdfs dfs -mkdir /user/aluno/feliciani/recover
+root@namenode:/# hdfs dfs -mkdir /user/aluno/feliciani/delete
+root@namenode:/# hdfs dfs -ls -R /user
+drwxr-xr-x   - root supergroup          0 2021-02-15 16:38 /user/aluno
+drwxr-xr-x   - root supergroup          0 2021-02-15 16:41 /user/aluno/feliciani
+drwxr-xr-x   - root supergroup          0 2021-02-15 16:38 /user/aluno/feliciani/data
+drwxr-xr-x   - root supergroup          0 2021-02-15 16:41 /user/aluno/feliciani/delete
+drwxr-xr-x   - root supergroup          0 2021-02-15 16:40 /user/aluno/feliciani/recover
+drwxr-xr-x   - root supergroup          0 2021-02-15 12:30 /user/hive
+drwxrwxr-x   - root supergroup          0 2021-02-15 12:30 /user/hive/warehouse
+root@namenode:/#
+
+
+root@namenode:/# ls
+bin   derby.log  employees.java  etc     hadoop-data  input  lib64  metastore_db  opt   root  run.sh  srv  tmp  var
+boot  dev        entrypoint.sh   hadoop  home         lib    media  mnt           proc  run   sbin    sys  usr
+
+root@namenode:/# cd /input
+
+root@namenode:/input# ls
+exercises-data
+
+root@namenode:/input# hdfs dfs -put /input/exercises-data/escola/ /user/aluno/feliciani/data
+
+root@namenode:/input# hdfs dfs -ls /user/aluno/feliciani/data
+Found 1 items
+drwxr-xr-x   - root supergroup          0 2021-02-15 16:45 /user/aluno/feliciani/data/escola
+
+root@namenode:/input# hdfs dfs -ls -R /user/aluno/feliciani/data
+drwxr-xr-x   - root supergroup          0 2021-02-15 16:45 /user/aluno/feliciani/data/escola
+-rw-r--r--   3 root supergroup        147 2021-02-15 16:45 /user/aluno/feliciani/data/escola/README.md
+-rw-r--r--   3 root supergroup     546284 2021-02-15 16:45 /user/aluno/feliciani/data/escola/alunos.csv
+-rw-r--r--   3 root supergroup    4891872 2021-02-15 16:45 /user/aluno/feliciani/data/escola/alunos.json
+-rw-r--r--   3 root supergroup      98437 2021-02-15 16:45 /user/aluno/feliciani/data/escola/alunos.png
+-rw-r--r--   3 root supergroup    6044140 2021-02-15 16:45 /user/aluno/feliciani/data/escola/alunos.xml
+-rw-r--r--   3 root supergroup       4667 2021-02-15 16:45 /user/aluno/feliciani/data/escola/bens-imoveis.json
+-rw-r--r--   3 root supergroup      78599 2021-02-15 16:45 /user/aluno/feliciani/data/escola/bens-imoveis.png
+-rw-r--r--   3 root supergroup       5630 2021-02-15 16:45 /user/aluno/feliciani/data/escola/bens-imoveis.xml
+-rw-r--r--   3 root supergroup       1998 2021-02-15 16:45 /user/aluno/feliciani/data/escola/bens_imovel.csv
+-rw-r--r--   3 root supergroup     731195 2021-02-15 16:45 /user/aluno/feliciani/data/escola/componentes-curriculares.csv
+-rw-r--r--   3 root supergroup    9787990 2021-02-15 16:45 /user/aluno/feliciani/data/escola/componentes-curriculares.json
+-rw-r--r--   3 root supergroup     109655 2021-02-15 16:45 /user/aluno/feliciani/data/escola/componentes-curriculares.png
+-rw-r--r--   3 root supergroup      18308 2021-02-15 16:45 /user/aluno/feliciani/data/escola/cursos.csv
+-rw-r--r--   3 root supergroup     253692 2021-02-15 16:45 /user/aluno/feliciani/data/escola/cursos.json
+-rw-r--r--   3 root supergroup      97271 2021-02-15 16:45 /user/aluno/feliciani/data/escola/cursos.png
+-rw-r--r--   3 root supergroup     295196 2021-02-15 16:45 /user/aluno/feliciani/data/escola/cursos.xml
+-rw-r--r--   3 root supergroup      12129 2021-02-15 16:45 /user/aluno/feliciani/data/escola/designacoes.csv
+-rw-r--r--   3 root supergroup     279549 2021-02-15 16:45 /user/aluno/feliciani/data/escola/designacoes.json
+-rw-r--r--   3 root supergroup      96691 2021-02-15 16:45 /user/aluno/feliciani/data/escola/designacoes.png
+-rw-r--r--   3 root supergroup     336640 2021-02-15 16:45 /user/aluno/feliciani/data/escola/designacoes.xml
+-rw-r--r--   3 root supergroup      18694 2021-02-15 16:45 /user/aluno/feliciani/data/escola/prestadoras-servico.csv
+-rw-r--r--   3 root supergroup      33426 2021-02-15 16:45 /user/aluno/feliciani/data/escola/prestadoras-servico.json
+-rw-r--r--   3 root supergroup     169764 2021-02-15 16:45 /user/aluno/feliciani/data/escola/prestadoras-servico.png
+-rw-r--r--   3 root supergroup      41473 2021-02-15 16:45 /user/aluno/feliciani/data/escola/prestadoras-servico.xml
+-rw-r--r--   3 root supergroup     105897 2021-02-15 16:45 /user/aluno/feliciani/data/escola/servidores.csv
+-rw-r--r--   3 root supergroup    2597473 2021-02-15 16:45 /user/aluno/feliciani/data/escola/servidores.json
+-rw-r--r--   3 root supergroup      89028 2021-02-15 16:45 /user/aluno/feliciani/data/escola/servidores.png
+-rw-r--r--   3 root supergroup    3069250 2021-02-15 16:45 /user/aluno/feliciani/data/escola/servidores.xml
+-rw-r--r--   3 root supergroup     314729 2021-02-15 16:45 /user/aluno/feliciani/data/escola/unidades-organizacionais.json
+-rw-r--r--   3 root supergroup     102433 2021-02-15 16:45 /user/aluno/feliciani/data/escola/unidades-organizacionais.png
+-rw-r--r--   3 root supergroup     382416 2021-02-15 16:45 /user/aluno/feliciani/data/escola/unidades-organizacionais.xml
+-rw-r--r--   3 root supergroup      40235 2021-02-15 16:45 /user/aluno/feliciani/data/escola/unidades.csv
+
+root@namenode:/input# hdfs dfs -put /input/exercises-data/entrada1.txt /user/aluno/feliciani/data
+
+root@namenode:/input# hdfs dfs -ls /user/aluno/feliciani/data
+Found 2 items
+-rw-r--r--   3 root supergroup         54 2021-02-15 17:06 /user/aluno/feliciani/data/entrada1.txt
+drwxr-xr-x   - root supergroup          0 2021-02-15 16:45 /user/aluno/feliciani/data/escola
+
+root@namenode:/input# hdfs dfs -mv /user/aluno/feliciani/data/entrada1.txt /user/aluno/feliciani/recover
+
+root@namenode:/input# hdfs dfs -ls /user/aluno/feliciani/recover
+Found 1 items
+-rw-r--r--   3 root supergroup         54 2021-02-15 17:06 /user/aluno/feliciani/recover/entrada1.txt
+
+root@namenode:/input# hdfs dfs -rm -R /user/aluno/feliciani/recover
+21/02/15 17:15:05 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
+Deleted /user/aluno/feliciani/recover
+
+
+root@namenode:/input# hdfs dfs -rm -skipTrash -R /user/aluno/feliciani/delete
+Deleted /user/aluno/feliciani/delete
+
+root@namenode:/input# hdfs dfs -find /user -name alunos.csv
+/user/aluno/feliciani/data/escola/alunos.csv
+
+root@namenode:/input# hdfs dfs -tail /user/aluno/feliciani/data/escola/alunos.csv
+NHO KANAREK",2018,0,N,2081113,2399342
+26660,"PIETRA DE SOUZA MATANA",2019,0,N,2081113,2399351
+11693,"PIETRA MARINÉE ZAMIN",2016,1,G,62151,62474
+573,"PIETRA PERES SCHLUMPF",2015,,M,2081113,3402
+23268,"PIETRA SOUTO LEMBERCK",2018,0,N,2081113,2399362
+17350,"PIETRO ANTUNES MACHADO",2017,,M,37350,511414
+27185,"PIETRO BORGES TIECHER",2019,0,N,2081113,2399346
+486,"PIETRO CORADINI FOLETTO",2015,,M,2081113,3402
+26272,"PIETRO EGLON DOLMAZE DE MEDEIROS",2019,0,N,2081113,2399335
+24473,"PIETRO HENRIQUE SILVA DOS SANTOS",2018,0,N,2081113,2399355
+4364,"PLINIO BITENCURT FINAMOR",2014,1,T,37350,39
+2084,"POLIANA GRAUPE DE ALMEIDA",2012,0,M,37350,1117
+21855,"POLIANA WAHLBRINCK VOLZ",2018,0,N,2081113,2399327
+1528,"POLYANA FOLETTO PRAUCHNER",2014,0,M,37350,1212
+21162,"POLYANA FOLETTO PRAUCHNER",2018,1,G,5997,712452
+21672,"POLYANA FUCILINI",2018,0,N,2081113,2399116
+20089,"PRAXEDES RODRIGUES DE RODRIGUES",2017,,M,37350,3763
+27509,"PRECILA FRANCESCKI TURRA",2019,1,T,2081111,34236
+1345,"PREDON DE SOUZA DA SILVA",2015,,M,37350,11442
+
+
+root@namenode:/input# hdfs dfs -cat /user/aluno/feliciani/data/escola/alunos.csv | head -n 2
+id_discente,nome,ano_ingresso,periodo_ingresso,nivel,id_forma_ingresso,id_curso
+18957,"ABELARDO DA SILVA COELHO",2017,1,G,62151,76995
+cat: Unable to write to output stream.
+
+
+root@namenode:/input# hdfs dfs -cat /user/aluno/feliciani/data/escola/alunos.csv | head -n 10
+id_discente,nome,ano_ingresso,periodo_ingresso,nivel,id_forma_ingresso,id_curso
+18957,"ABELARDO DA SILVA COELHO",2017,1,G,62151,76995
+553,"ABIEL GODOY MARIANO",2015,,M,2081113,3402
+17977,"ABIGAIL ANTUNES SALERNO FAN",2017,1,T,2081111,759711
+16613,"ABIGAIL FERNANDA MALHEIROS BRASIL",2017,,M,37350,1222
+17398,"ABIGAIL JOSIANE RIL ROCHA",2017,,M,37350,5041
+26880,"ABIMAEL CHRISTOPFER WESCHENFELDER",2019,1,T,2081115,1913420
+28508,"ABNER NUNES PERES",2019,1,G,37350,181097
+18693,"ACSA PEREIRA RODRIGUES",2017,1,G,62151,77498
+28071,"ACSA ROBALO DOS SANTOS",2019,1,T,2081115,3996007
+cat: Unable to write to output stream.
+
+
+root@namenode:/input# hdfs dfs -checksum /user/aluno/feliciani/data/escola/alunos.csv
+/user/aluno/feliciani/data/escola/alunos.csv    MD5-of-0MD5-of-512CRC32C        000002000000000000000000164b9235a4d65a1e8ebfe12eb97ac471
+
+root@namenode:/input# hdfs dfs -touchz /user/aluno/feliciani/data/test
+
+root@namenode:/input# hdfs dfs -ls /user/aluno/feliciani/data
+Found 2 items
+drwxr-xr-x   - root supergroup          0 2021-02-15 16:45 /user/aluno/feliciani/data/escola
+-rw-r--r--   3 root supergroup          0 2021-02-15 17:36 /user/aluno/feliciani/data/test
+root@namenode:/input#
+
+root@namenode:/input# hdfs dfs -setrep 2 /user/aluno/feliciani/data/test
+Replication 2 set: /user/aluno/feliciani/data/test
+root@namenode:/input#
+
+root@namenode:/input# hdfs dfs -ls /user/aluno/feliciani/data
+Found 2 items
+drwxr-xr-x   - root supergroup          0 2021-02-15 16:45 /user/aluno/feliciani/data/escola
+-rw-r--r--   2 root supergroup          0 2021-02-15 17:36 /user/aluno/feliciani/data/test
+
+root@namenode:/input# hdfs dfs -help stat
+-stat [format] <path> ... :
+  Print statistics about the file/directory at <path>
+  in the specified format. Format accepts filesize in
+  blocks (%b), type (%F), group name of owner (%g),
+  name (%n), block size (%o), replication (%r), user name
+  of owner (%u), modification date (%y, %Y).
+  %y shows UTC date as "yyyy-MM-dd HH:mm:ss" and
+  %Y shows milliseconds since January 1, 1970 UTC.
+  If the format is not specified, %y is used by default.
+
+
+root@namenode:/input# hdfs dfs -stat %r /user/aluno/feliciani/data/escola/alunos.csv
+3
+
+root@namenode:/input# hdfs dfs -stat %o /user/aluno/feliciani/data/escola/alunos.csv
+134217728
+
+root@namenode:/input# hdfs dfs -df -h /user/aluno/feliciani/data/
+Filesystem               Size    Used  Available  Use%
+hdfs://namenode:8020  488.3 G  29.6 M    164.6 G    0%
+
+root@namenode:/input# hdfs dfs -du -h /user/aluno/feliciani/data/
+29.2 M  /user/aluno/feliciani/data/escola
+0       /user/aluno/feliciani/data/test
+root@namenode:/input#
+
+root@namenode:/input# hdfs dfs -du -h /
+16.6 K  /hbase
+0       /tmp
+29.2 M  /user
+
+
+root@namenode:/input# exit
+exit
+
+PS E:\projetos\docker-bigdata\input\exercises-data> docker-compose stop
+Stopping hive-server               ... done
+Stopping hive_metastore            ... done
+Stopping hive-metastore-postgresql ... done
+Stopping datanode                  ... done
+Stopping hbase-master              ... done
+Stopping zookeeper                 ... done
+Stopping namenode                  ... done
+Stopping database                  ... done
+Stopping spark                     ... done
+
+PS E:\projetos\docker-bigdata\input\exercises-data> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
